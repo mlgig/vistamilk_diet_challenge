@@ -45,7 +45,7 @@ def basics(clf, X, y, cv=5):
     return scores, predictions, report, confusion
 
 
-def convert_to_image(wave):
+def convert_to_image(wave, normalize=False):
     '''Convert wave to image-like array
     
     To make the wave image-like, the dimensions should be 33x33.
@@ -55,14 +55,16 @@ def convert_to_image(wave):
 
     The normalization step could also go within the network.
     '''
-    # wave *= 255 / wave.max()         # normalize
-    wave = np.pad(wave, (0, 29))     # pad
-    wave = wave.reshape((33, 33, 1)) # reshape
+    if normalize:
+        wave *= 255 / wave.max()
+
+    wave = np.pad(wave, (0, 29))      # pad
+    wave = wave.reshape((33, 33, 1))  # reshape
 
     return wave
 
 
-def convert_waves(df):
+def convert_waves(df, normalize=False):
     '''Apply conversion function to the entire dataset.
     
     This should probably be optimized.
@@ -70,8 +72,23 @@ def convert_waves(df):
     waves = []
 
     for _, row in df.iterrows():
-        conv = convert_to_image(row)
+        conv = convert_to_image(row, normalize=normalize)
         waves.append(conv)
 
     waves = np.vstack(waves)
+
     return waves.reshape((df.shape[0], 33, 33, 1))
+
+
+def convert_waves_linear(df, normalize=False):
+    '''Read waves linearly
+
+    Instead of loading waves as images, read them as individual sequences and
+    stack them.
+    '''
+    if normalize:
+        df = (df - df.mean()) / df.std()
+
+    waves = [wave.to_numpy() for _, wave in df.iterrows()]
+
+    return np.vstack(waves)
