@@ -12,7 +12,7 @@ from src import utils
 
 random_state = 0
 epochs = 10_000
-patience = 100
+patience = 500
 
 console = Console()
 
@@ -58,8 +58,14 @@ earlystopping_callback = tf.keras.callbacks.EarlyStopping(
     monitor='val_loss', patience=patience)
 
 model = tf.keras.Sequential([
-    layers.InputLayer(input_shape=(1060, 1, 1)),
+    layers.Reshape((1060, 1), input_shape=(1060, 1, 1)),
+    # layers.InputLayer(input_shape=(1060, 1, 1)),
+    layers.Conv1D(128, 5),
+    layers.Conv1D(64, 3),
+    layers.Conv1D(32, 3),
     layers.Flatten(),
+    layers.Dense(1024, activation='relu'),
+    layers.Dropout(0.2),
     layers.Dense(1024, activation='relu'),
     layers.Dropout(0.2),
     layers.Dense(1024, activation='relu'),
@@ -90,6 +96,7 @@ model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.00001),
 history = model.fit(training_X, training_y,
                     validation_data=(validation_X, validation_y),
                     epochs=epochs,
+                    batch_size=1946,
                     callbacks=[earlystopping_callback, tensorboard_callback])
 
 
