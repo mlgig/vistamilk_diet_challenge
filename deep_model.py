@@ -1,6 +1,10 @@
 import argparse
+import json
 
 from pathlib import Path
+
+import tensorflow as tf
+import numpy as np
 
 from sklearn.model_selection import train_test_split
 from rich.console import Console
@@ -72,7 +76,12 @@ history = model.fit(training_X, training_y,
                     callbacks=[earlystopping_callback, tensorboard_callback])
 
 model.save(Path('models', run_name))
+json.dump(history.history,
+          open(Path('models', run_name, run_name + '.json'), 'w'))
 
 # keep this once final architecture has been selected
-# test_loss, test_acc = model.evaluate(test_X,  test_y, verbose=2)
-# console.print(f'Test accuracy: {test_acc} (loss {test_loss})')
+test_loss, test_acc = model.evaluate(test_X,  test_y, verbose=2)
+console.print(f'Test accuracy: {test_acc} (loss {test_loss})')
+
+with open(Path('models', run_name, 'test_results.txt'), 'w') as f:
+    f.write(f'accuracy: {test_acc}\nloss: {test_loss}\n')
