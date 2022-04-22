@@ -4,7 +4,7 @@ from tensorflow.keras import layers
 
 
 GLB_LR             = 0.00001
-GLB_PATIENTE       = 1000
+GLB_PATIENTE       = 1500
 GLB_DROPOUT        = 0.2
 FCN_SHAPE_FULL     = (1060, 1, 1)
 FCN_SHAPE_NO_WATER = (518, 1, 1)
