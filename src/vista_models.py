@@ -82,7 +82,7 @@ def fcn(input_shape: tuple, log_dir: Path) -> ModelObj:
         layers.Dense(3, activation=OUT_ACTIVATION)])
 
     model.compile(optimizer=K.optimizers.Adam(learning_rate=GLB_LR),
-                  loss=K.losses.CategoricalCrossentropy(from_logits=True),
+                  loss=K.losses.CategoricalCrossentropy(from_logits=False),
                   metrics=['accuracy'])
 
     return model, get_callbacks(log_dir)
@@ -124,7 +124,7 @@ def cnn(input_shape: tuple, log_dir: Path) -> ModelObj:
         layers.Dense(3, activation=OUT_ACTIVATION)])
 
     model.compile(optimizer=K.optimizers.Adam(learning_rate=GLB_LR),
-                  loss=K.losses.CategoricalCrossentropy(from_logits=True),
+                  loss=K.losses.CategoricalCrossentropy(from_logits=False),
                   metrics=['accuracy'])
 
     return model, get_callbacks(log_dir)
@@ -169,7 +169,7 @@ def cnn_dilated(input_shape: tuple, log_dir: Path) -> ModelObj:
         layers.Dense(3, activation=OUT_ACTIVATION)])
 
     model.compile(optimizer=K.optimizers.Adam(learning_rate=GLB_LR),
-                  loss=K.losses.CategoricalCrossentropy(from_logits=True),
+                  loss=K.losses.CategoricalCrossentropy(from_logits=False),
                   metrics=['accuracy'])
 
     return model, get_callbacks(log_dir)
