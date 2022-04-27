@@ -8,7 +8,7 @@ For each group of approaches investigated, there is an associated notebook in fo
 ## Citation
 If you use this work, please cite as:
 ```
-@incollection{mlgigvm20212,
+@incollection{mlgigvm2022,
   title={MLGIG Team Submission to the International Workshop on Spectroscopy and Chemometrics 2022},
   author={Ifrim, Georgiana and Le Nguyen, Thach and Bevilaqua, Antonio and Dhariyal, Bhaskar and Singh, Ashish},
   year={2022},
