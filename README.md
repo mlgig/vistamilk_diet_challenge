@@ -1,5 +1,5 @@
 # vistamilk_diet_challenge
-Code and presentations for the MLGIG team entry at the [International Workshop on Spectroscopy and Chemometrics 2022](https://www.vistamilk.ie/event/international-workshop-on-spectroscopy-chemometrics/), 
+Code and presentations for the MLGIG team entry for the data challenge at the [International Workshop on Spectroscopy and Chemometrics 2022](https://www.vistamilk.ie/event/international-workshop-on-spectroscopy-chemometrics/), 
 organised by the Vistamilk SFI Research Centre, Ireland.
 
 ## Notebooks
