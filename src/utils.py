@@ -106,7 +106,7 @@ def convert_waves(df: pd.DataFrame,
         A vertically stacked array containing all the waves.
     '''
     waves = []
-    df = prep_df(normalize, cut_water)
+    df = prep_df(df, normalize, cut_water)
 
     for _, row in df.iterrows():
         conv = convert_to_image(row, cut_water=cut_water)
