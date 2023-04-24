@@ -5,6 +5,8 @@ organised by the Vistamilk SFI Research Centre, Ireland.
 ## Notebooks
 For each group of approaches investigated, there is an associated notebook in folder [notebooks](https://github.com/mlgig/vistamilk_diet_challenge/tree/main/notebooks) or in folder [deep_models](https://github.com/mlgig/vistamilk_diet_challenge/tree/main/deep_models).
 
+Have a quick look at the [slides] (https://github.com/mlgig/vistamilk_diet_challenge/blob/main/28042022-VistaMilk-DietChallenge-MLGIG-slides.pdf) before divign through the code.
+
 ## Citation
 If you use this work, please cite as:
 ```
