@@ -21,7 +21,7 @@ If you use this work, please cite as:
   publisher={}
 }
 
-@incollection{dcvm2022,
+@incollection{dcvm2023,
  title={Classification of cow diet based on milk mid infrared spectra: a data analysis competition at the "International workshop of spectroscopy and chemometrics 2022"},
   author={Maria Frizzarin, Giulio Visentin, Alessandro Ferragina, Elena Hayes, Antonio Bevilacqua, Bhaskar Dhariyal, Katarina Domijan, Hussain Khan, Georgiana Ifrim, Thach Le Nguyen, Joe Meagher, Laura Menchetti, Ashish Singh, Suzy Whoriskey, Robert Williamson, Martina Zappaterra, Alessandro Casa},
   year={2023},
